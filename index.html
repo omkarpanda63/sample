@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IP Address and Greeting</title>
+    <script>
+        function displayIP() {
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ipAddress').textContent = data.ip;
+                    // First alert pop-up
+                    alert('Decryiption process initiated');
+                    // Second alert pop-up
+                    alert('Remote access established');
+                })
+                .catch(error => {
+                    console.error('Error fetching IP:', error);
+                });
+        }
+    </script>
+</head>
+<body onload="displayIP()">
+    <h1>Hi there!</h1>
+    <p>Your IP address is: <span id="ipAddress">Loading...</span></p>
+</body>
+</html>
